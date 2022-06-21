@@ -5,8 +5,7 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.function.Consumer;
-import java.util.stream.IntStream;
+
 
 public class FileDAOImpl implements FileDAO {
     List<FileVO> fileList = new ArrayList<>();
@@ -38,9 +37,8 @@ public class FileDAOImpl implements FileDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        FileVO fileVO = new FileVO(filePath,fileName,fileContent);
 
-        return fileVO;
+        return new FileVO(filePath,fileName,fileContent);
     }
 
     @Override
@@ -51,9 +49,7 @@ public class FileDAOImpl implements FileDAO {
     @Override
     public void fileList() {
         System.out.println("----------------------파일목록-------------------------");
-        fileList.forEach(fileVO -> {
-            System.out.println((fileList.indexOf(fileVO)) + 1 + ". " + fileVO.toStringFileList());
-        });
+        fileList.forEach(fileVO -> System.out.println((fileList.indexOf(fileVO)) + 1 + ". " + fileVO.toStringFileList()));
         System.out.println("------------------------------------------------------" + System.lineSeparator());
 //        fileList.forEach(new Consumer<FileVO>() {
 //            @Override
