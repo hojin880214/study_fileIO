@@ -19,7 +19,7 @@ public class Main {
                 int selectedNumber = sc.nextInt();
                 if (menu.selectMenu(selectedNumber)) return;
             } catch (InputMismatchException E) {
-                System.out.println("잘못 입력하셨습니다. 아라비안 숫자를 올바르게 입력해주세요.");
+                System.err.println("잘못 입력하셨습니다. 아라비안 숫자를 올바르게 입력해주세요.");
             }
         }
     }

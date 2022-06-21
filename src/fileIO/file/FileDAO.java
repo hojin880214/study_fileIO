@@ -1,7 +1,11 @@
 package fileIO.file;
 
+import java.util.List;
+
 public interface FileDAO {
 
-    void addFile();
-
+    FileVO makeFile();
+    void addFileList(FileVO fileVO);
+    void fileList();
+    void textFileList();
 }
