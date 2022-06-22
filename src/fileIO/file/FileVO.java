@@ -5,12 +5,12 @@ import lombok.Getter;
 @Getter
 public class FileVO {
 
-    private final String filePath;
+    private final String fileFullPath;
     private final String fileName;
     private final String fileContent;
 
-    public FileVO(String filePath, String fileName, String fileContent) {
-        this.filePath = filePath;
+    public FileVO(String fileFullPath, String fileName, String fileContent) {
+        this.fileFullPath = fileFullPath;
         this.fileName = fileName;
         this.fileContent = fileContent;
     }

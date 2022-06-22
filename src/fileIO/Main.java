@@ -2,7 +2,6 @@ package fileIO;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import fileIO.file.FileDAOImpl;
 import fileIO.menu.Menu;
 
 
@@ -22,5 +21,6 @@ public class Main {
                 System.err.println("잘못 입력하셨습니다. 아라비안 숫자를 올바르게 입력해주세요.");
             }
         }
+
     }
 }
