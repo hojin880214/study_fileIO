@@ -1,6 +1,4 @@
-package fileIO.file;
-
-import com.sun.org.glassfish.external.statistics.annotations.Reset;
+package com.fileIO.shj.file;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -11,16 +9,32 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 public class FileDAOImpl implements FileDAO {
+
+    private static Logger LOGGER = LoggerFactory.getLogger(FileDAOImpl.class);
 
     private final String projectPath = System.getProperty("user.dir");
     List<FileVO> fileList = new ArrayList<>();
     List<String> textFileList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
+
+    // 색상 상수값 위치 어디로 옮길지
     public static final String RESET = "\u001B[0m";
     public static final String FONT_BLACK = "\u001B[30m";
     public static final String BACKGROUND_GREEN = "\u001B[42m";
+
+
+    private SqlSessionFactory sqlSessionFactory = null;
+
+    public FileDAOImpl(SqlSessionFactory sqlSessionFactory){
+        this.sqlSessionFactory = sqlSessionFactory;
+    }
 
     @Override
     public FileVO makeFile() {
@@ -56,7 +70,23 @@ public class FileDAOImpl implements FileDAO {
 
     @Override
     public void addFileList(FileVO fileVO) {
-        fileList.add(fileVO);
+//        fileList.add(fileVO);
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+        try{
+            sqlSession.insert("File.insert",fileVO);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            sqlSession.close();
+        }
+        sqlSession = sqlSessionFactory.openSession();
+        try{
+            fileList = sqlSession.selectList("File.selectList");
+            System.out.println("");
+        }finally {
+            sqlSession.close();
+        }
     }
 
     @Override

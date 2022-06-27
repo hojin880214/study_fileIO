@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/bin/test/console"/>
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<lib name="lombok-1.18.20.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/lombok-1.18.20.jar!/"/>
+	</lib>
+	<levels>
+		<level name="log4j-core-2.17.2" value="project"/>
+		<level name="log4j-api-2.17.2" value="project"/>
+		<level name="slf4j-api-1.7.36" value="project"/>
+		<level name="postgresql-42.4.0" value="project"/>
+		<level name="mybatis-3.5.10" value="project"/>
+	</levels>
+</component>

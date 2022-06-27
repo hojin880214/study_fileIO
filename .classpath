@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="resources/config/MyBatis"/>
+	<classpathentry kind="src" path="resources/config/log4j2"/>
+	<classpathentry kind="src" path="resources/sqlmap"/>
+	<classpathentry kind="lib" path="lib/lombok-1.18.20.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/log4j-core-2.17.2"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/log4j-api-2.17.2"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/slf4j-api-1.7.36"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/postgresql-42.4.0"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mybatis-3.5.10"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

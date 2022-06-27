@@ -1,4 +1,4 @@
-package fileIO.file;
+package com.fileIO.shj.file;
 
 import lombok.Getter;
 

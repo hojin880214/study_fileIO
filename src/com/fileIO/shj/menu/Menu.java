@@ -1,13 +1,17 @@
-package fileIO.menu;
+package com.fileIO.shj.menu;
 
-import fileIO.file.FileDAOImpl;
+import com.fileIO.shj.file.FileDAOImpl;
+import com.fileIO.shj.myBatis.MyBatisConnectionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
 
-    FileDAOImpl fileDAOimpl = new FileDAOImpl();
+    private static Logger LOGGER = LoggerFactory.getLogger(Menu.class);
+
+    FileDAOImpl fileDAOimpl = new FileDAOImpl(MyBatisConnectionFactory.getSqlSessionFactory());
     Scanner scanner = new Scanner(System.in);
 
     public void printMenu() {
@@ -51,7 +55,7 @@ public class Menu {
                 System.out.println("3. 나가기 선택하셨습니다. 종료합니다.");
                 return true;
             default:
-                System.err.println("잘못 입력하셨습니다. 해당하는 숫자를 다시 입력해주세요.");
+                LOGGER.error("잘못 입력하셨습니다. 해당하는 숫자를 다시 입력해주세요.");
         }
 
         return false;

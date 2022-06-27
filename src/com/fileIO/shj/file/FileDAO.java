@@ -1,7 +1,4 @@
-package fileIO.file;
-
-import java.io.IOException;
-import java.util.List;
+package com.fileIO.shj.file;
 
 public interface FileDAO {
 
